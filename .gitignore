@@ -1,0 +1,12 @@
+# IDEs
+.idea/
+.vscode/
+.DS_Store
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+.pytest_cache/

@@ -1,0 +1,45 @@
+{
+   "data":{
+      "fruits":[
+         {
+            "name":"strawberry",
+            "color":{
+               "name":"red"
+            },
+            "plant": {
+               "name": "strawberry plant"
+            },
+            "eaters":[
+               {
+                  "name": "pepa"
+               },
+               {
+                  "name": "josef"
+               }
+            ]
+         },
+         {
+            "name":"raspberry",
+            "color":{
+               "name":"yellow"
+            },
+            "plant": {
+               "name": "raspberry plant"
+            },
+            "eaters":[
+
+            ]
+         },
+         {
+            "name":"banana",
+            "color":{
+               "name":"orange"
+            },
+            "plant": null,
+            "eaters":[
+
+            ]
+         }
+      ]
+   }
+}

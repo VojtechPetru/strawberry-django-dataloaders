@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "strawberry-django-dataloaders"
+version = "0.1.0"
+description = ""
+authors = ["vojtech <petru.vojtech@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+Django = ">=3.2"
+strawberry-graphql-django = "^0.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pytest-django = "^4.5.2"
+pytest-asyncio = "^0.19.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.django_settings"
+testpaths = ["tests"]

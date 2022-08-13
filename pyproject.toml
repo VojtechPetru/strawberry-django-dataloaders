@@ -1,11 +1,16 @@
 [tool.poetry]
 name = "strawberry-django-dataloaders"
-version = "0.1.0"
-description = ""
+version = "0.1.2"
+description = "A set of tools for using dataloaders with Django and Strawberry GraphQL."
+readme = "README.md"
+license = "LICENSE.md"
+homepage = "https://github.com/VojtechPetru/strawberry-django-dataloaders"
+repository = "https://github.com/VojtechPetru/strawberry-django-dataloaders"
+keywords = ["strawberry", "django", "graphql", "dataloader"]
 authors = ["vojtech <petru.vojtech@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.9,<4.0"
+python = ">=3.10,<4.0"
 Django = ">=3.2"
 strawberry-graphql-django = "^0.4"
 

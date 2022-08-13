@@ -9,4 +9,4 @@ class BaseError(Exception):
 @dataclass
 class UnsupportedRelationError(BaseError):
     message: str = "Unsupported relation"
-    code: str = 'unsupported_relation'
+    code: str = "unsupported_relation"

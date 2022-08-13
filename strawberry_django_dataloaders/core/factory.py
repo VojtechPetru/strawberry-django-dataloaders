@@ -1,7 +1,8 @@
-from typing import Type, TYPE_CHECKING, Hashable, cast, Callable, Any, Coroutine, Union
+from typing import TYPE_CHECKING, Any, Callable, Coroutine, Hashable, Type, Union, cast
 
 from django.apps import apps
 from strawberry.types import Info
+
 from strawberry_django_dataloaders.core.dataloader import BaseDataLoader
 
 if TYPE_CHECKING:

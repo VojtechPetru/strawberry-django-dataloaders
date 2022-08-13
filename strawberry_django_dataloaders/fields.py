@@ -1,9 +1,9 @@
-import strawberry.django
 from typing import TYPE_CHECKING, Any
 
+import strawberry.django
 from strawberry import UNSET
 
-from . import factories, exceptions
+from . import exceptions, factories
 
 if TYPE_CHECKING:
     from django.db.models import Model as DjangoModel  # pragma: nocover
@@ -24,13 +24,13 @@ async def get_dataloader_resolver(root: "DjangoModel", info: "Info"):
 
 
 def auto_dataloader_field(
-        resolver=get_dataloader_resolver,
-        *,
-        name=None,
-        field_name=None,
-        filters=UNSET,
-        default=UNSET,
-        **kwargs,
+    resolver=get_dataloader_resolver,
+    *,
+    name=None,
+    field_name=None,
+    filters=UNSET,
+    default=UNSET,
+    **kwargs,
 ) -> Any:
     """
     A field which has automatic dataloader resolver based on the relationship type (one-to-one, one-to-many, etc.).
@@ -59,5 +59,5 @@ def auto_dataloader_field(
         field_name=field_name,
         filters=filters,
         default=default,
-        **kwargs
+        **kwargs,
     )

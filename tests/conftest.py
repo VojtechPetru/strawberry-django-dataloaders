@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import Callable, Coroutine, Any, Type
+from typing import Any, Callable, Coroutine, Type
 
 import pytest
 from django.http import HttpResponse
@@ -22,6 +22,7 @@ class DbData:
 @dataclass
 class TestCollection:
     """A basic connection between the query, state of db and expected response in a test."""
+
     query: GQLQueries
     db_data: DbData
     exp_response: Type[BaseResponseFixture]
@@ -33,7 +34,7 @@ def db_data(db) -> DbData:
     fruit_names = ["strawberry", "raspberry", "banana"]
     fruit_plant_names = ["strawberry plant", "raspberry plant", None]
     color_names = ["red", "yellow", "orange"]
-    eater_names = ['pepa', 'josef']
+    eater_names = ["pepa", "josef"]
     data = DbData()
     for fruit_name, plant_name, color_name in zip(fruit_names, fruit_plant_names, color_names):
         color = models.Color.objects.create(name=color_name)
@@ -46,9 +47,12 @@ def db_data(db) -> DbData:
 
 
 @pytest.fixture
-def arequest(async_client: AsyncClient) -> Callable[[GQLQueries, str], Coroutine[HttpResponse, Any, Any]]:
+def arequest(
+    async_client: AsyncClient,
+) -> Callable[[GQLQueries, str], Coroutine[HttpResponse, Any, Any]]:
     async def make_request(query: GQLQueries, url: str):
-        return await async_client.post(f"/{url}", data={'query': query}, content_type='application/json')
+        return await async_client.post(f"/{url}", data={"query": query}, content_type="application/json")
+
     return make_request
 
 

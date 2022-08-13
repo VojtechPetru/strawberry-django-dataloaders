@@ -2,9 +2,9 @@ import strawberry
 import strawberry_django
 from strawberry.types import Info
 
+from strawberry_django_dataloaders import factories, fields
+
 from .. import models
-from strawberry_django_dataloaders import factories
-from strawberry_django_dataloaders import fields
 from . import dataloaders
 
 
@@ -35,6 +35,7 @@ class FruitEaterType:
 @strawberry_django.type(models.Fruit)
 class FruitTypeDataLoaders:
     """Uses the simplest form of dataloaders."""
+
     id: strawberry.auto
     name: strawberry.auto
 
@@ -54,24 +55,25 @@ class FruitTypeDataLoaders:
 @strawberry_django.type(models.Fruit)
 class FruitTypeDataLoaderFactories:
     """Uses dataloader factories."""
+
     id: strawberry.auto
     name: strawberry.auto
 
     @strawberry.field
     async def color(self: "models.Fruit", info: "Info") -> ColorType | None:
-        loader = factories.PKDataLoaderFactory.get_loader_class('tests.Color')
+        loader = factories.PKDataLoaderFactory.get_loader_class("tests.Color")
         return await loader(context=info.context).load(self.color_id)
 
     @strawberry.field
     async def plant(self: "models.Fruit", info: "Info") -> FruitPlantType | None:
-        loader = factories.PKDataLoaderFactory.get_loader_class('tests.FruitPlant')
+        loader = factories.PKDataLoaderFactory.get_loader_class("tests.FruitPlant")
         return await loader(context=info.context).load(self.plant_id)
 
     @strawberry.field
     async def eaters(self: "models.Fruit", info: "Info") -> list[FruitEaterType]:
         loader = factories.ReverseFKDataLoaderFactory.get_loader_class(
-            'tests.FruitEater',
-            reverse_path='favourite_fruit_id',
+            "tests.FruitEater",
+            reverse_path="favourite_fruit_id",
         )
         return await loader(context=info.context).load(self.color_id)
 
@@ -84,6 +86,7 @@ class FruitTypeDataLoaderFactories:
 @strawberry_django.type(models.Fruit)
 class FruitTypeAutoDataLoaderFields:
     """Uses auto dataloader fields."""
+
     id: strawberry.auto
     name: strawberry.auto
     color: ColorType = fields.auto_dataloader_field()

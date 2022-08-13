@@ -1,7 +1,7 @@
 from functools import partial
 
-import strawberry_django
 import strawberry
+import strawberry_django
 
 from . import types
 

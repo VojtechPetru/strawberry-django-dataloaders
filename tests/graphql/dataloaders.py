@@ -1,4 +1,5 @@
 from strawberry_django_dataloaders import dataloaders
+
 from .. import models
 
 
@@ -12,4 +13,4 @@ class FruitPlantPKDataLoader(dataloaders.BasicPKDataLoader):
 
 class FruitEatersReverseFKDataLoader(dataloaders.BasicReverseFKDataLoader):
     model = models.FruitEater
-    reverse_path = 'favourite_fruit_id'
+    reverse_path = "favourite_fruit_id"

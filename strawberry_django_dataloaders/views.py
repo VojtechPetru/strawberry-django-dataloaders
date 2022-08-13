@@ -1,12 +1,13 @@
 from dataclasses import dataclass, field
-from typing import Type, TYPE_CHECKING
+from typing import TYPE_CHECKING, Type
 
 from strawberry.django.context import StrawberryDjangoContext
 from strawberry.django.views import AsyncGraphQLView
 
 if TYPE_CHECKING:
-    from strawberry_django_dataloaders.core.dataloader import BaseDataLoader  # pragma: nocover
     from django.http import HttpRequest, HttpResponse  # pragma: nocover
+
+    from strawberry_django_dataloaders.core.dataloader import BaseDataLoader  # pragma: nocover
 
 
 @dataclass

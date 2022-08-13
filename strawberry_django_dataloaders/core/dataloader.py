@@ -2,9 +2,11 @@ from typing import TYPE_CHECKING, Type
 
 from asgiref.sync import sync_to_async
 from strawberry.dataloader import DataLoader
+
 if TYPE_CHECKING:
-    from strawberry_django_dataloaders.views import DataloaderContext  # pragma: nocover
     from django.db.models import Model as DjangoModel  # pragma: nocover
+
+    from strawberry_django_dataloaders.views import DataloaderContext  # pragma: nocover
 
 
 class BaseDataLoader(DataLoader):

@@ -1,9 +1,9 @@
 from collections import defaultdict
 
 from asgiref.sync import sync_to_async
-from strawberry_django_dataloaders.core.dataloader import BaseDjangoModelDataLoader
-
 from django.db.models import Model as DjangoModel
+
+from strawberry_django_dataloaders.core.dataloader import BaseDjangoModelDataLoader
 
 
 class BasicPKDataLoader(BaseDjangoModelDataLoader):

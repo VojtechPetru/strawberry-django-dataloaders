@@ -1,6 +1,7 @@
-from typing import Type, Coroutine, Callable
+from typing import Callable, Coroutine, Type
 
-from django.db.models import Model as DjangoModel, ManyToOneRel
+from django.db.models import ManyToOneRel
+from django.db.models import Model as DjangoModel
 from django.db.models.fields.related import RelatedField
 from strawberry.types import Info
 from strawberry_django.fields.field import StrawberryDjangoField

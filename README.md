@@ -5,13 +5,33 @@ and [Strawberry](https://github.com/strawberry-graphql/strawberry) without unnec
 ## Installation
 
 ```bash
-TODO
+pip install strawberry-django-dataloaders
 ```
 
 
-## Usage & examples
+# Usage & examples
 This package provides 3 levels of generating dataloaders, each offering higher level of abstraction
 than the previous one.
+
+### View
+In the `graphql/` endpoint where you wish to use dataloaders, use (or subclass) `DataloaderAsyncGraphQLView`.
+This is necessary because created dataloaders are stored to the request context. This ensures that:
+
+- fresh dataloader instances are created for each request
+- a dataloader persists for the duration of the request
+
+which are both important properties for loaded values caching.
+
+```python
+from django.urls import path
+
+from strawberry_django_dataloaders.views import DataloaderAsyncGraphQLView
+
+urlpatterns = [
+    path('graphql/', DataloaderAsyncGraphQLView.as_view(schema=...)),
+]
+```
+
 ### Models definition
 Definition of models used in the examples.
 ```python

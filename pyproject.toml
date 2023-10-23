@@ -12,7 +12,7 @@ authors = ["vojtech <petru.vojtech@gmail.com>"]
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
 Django = ">=3.2"
-strawberry-graphql-django = "0.9.4"
+strawberry-graphql-django = "^0.9.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"

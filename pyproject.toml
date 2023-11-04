@@ -12,12 +12,12 @@ authors = ["vojtech <petru.vojtech@gmail.com>"]
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
 Django = ">=3.2"
-strawberry-graphql-django = "^0.4"
+strawberry-graphql-django = ">=0.9"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
 pytest-django = "^4.5.2"
-pytest-asyncio = "^0.19.0"
+pytest-asyncio = "^0.21.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -1,5 +1,5 @@
 import strawberry
-import strawberry_django
+import strawberry.django
 from strawberry.types import Info
 
 from strawberry_django_dataloaders import factories, fields
@@ -8,31 +8,31 @@ from .. import models
 from . import dataloaders
 
 
-@strawberry_django.type(models.FruitVariety)
+@strawberry.django.type(models.FruitVariety)
 class FruitVarietyType:
     id: strawberry.auto
     name: strawberry.auto
 
 
-@strawberry_django.type(models.FruitPlant)
+@strawberry.django.type(models.FruitPlant)
 class FruitPlantType:
     name: strawberry.auto
     fruit: strawberry.auto
 
 
-@strawberry_django.type(models.Color)
+@strawberry.django.type(models.Color)
 class ColorType:
     name: strawberry.auto
     fruits: strawberry.auto
 
 
-@strawberry_django.type(models.FruitEater)
+@strawberry.django.type(models.FruitEater)
 class FruitEaterType:
     name: strawberry.auto
     favourite_fruit: strawberry.auto
 
 
-@strawberry_django.type(models.Fruit)
+@strawberry.django.type(models.Fruit)
 class FruitTypeDataLoaders:
     """Uses the simplest form of dataloaders."""
 
@@ -52,7 +52,7 @@ class FruitTypeDataLoaders:
         return await dataloaders.FruitEatersReverseFKDataLoader(context=info.context).load(self.pk)
 
 
-@strawberry_django.type(models.Fruit)
+@strawberry.django.type(models.Fruit)
 class FruitTypeDataLoaderFactories:
     """Uses dataloader factories."""
 
@@ -83,13 +83,13 @@ class FruitTypeDataLoaderFactories:
     #     return await loader(context=info.context).load(self.color_id)
 
 
-@strawberry_django.type(models.Fruit)
+@strawberry.django.type(models.Fruit)
 class FruitTypeAutoDataLoaderFields:
     """Uses auto dataloader fields."""
 
     id: strawberry.auto
     name: strawberry.auto
-    color: ColorType = fields.auto_dataloader_field()
-    plant: FruitPlantType = fields.auto_dataloader_field()
+    color: ColorType | None = fields.auto_dataloader_field()
+    plant: FruitPlantType | None = fields.auto_dataloader_field()
     varieties: list[FruitVarietyType] = fields.auto_dataloader_field()
     eaters: list[FruitEaterType] = fields.auto_dataloader_field()

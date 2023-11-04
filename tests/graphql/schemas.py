@@ -1,24 +1,24 @@
 from functools import partial
 
 import strawberry
-import strawberry_django
+import strawberry.django
 
 from . import types
 
 
 @strawberry.type
 class DataLoadersQuery:
-    fruits: list[types.FruitTypeDataLoaders] = strawberry_django.field()
+    fruits: list[types.FruitTypeDataLoaders] = strawberry.django.field()
 
 
 @strawberry.type
 class DataLoaderFactoriesQuery:
-    fruits: list[types.FruitTypeDataLoaderFactories] = strawberry_django.field()
+    fruits: list[types.FruitTypeDataLoaderFactories] = strawberry.django.field()
 
 
 @strawberry.type
 class AutoDataLoaderFieldsQuery:
-    fruits: list[types.FruitTypeAutoDataLoaderFields] = strawberry_django.field()
+    fruits: list[types.FruitTypeAutoDataLoaderFields] = strawberry.django.field()
 
 
 _base_schema = partial(strawberry.Schema, mutation=None)

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "strawberry-django-dataloaders"
-version = "0.1.3"
+version = "0.2.0"
 description = "A set of tools for using dataloaders with Django and Strawberry GraphQL."
 readme = "README.md"
 license = "LICENSE.md"
